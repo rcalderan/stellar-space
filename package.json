@@ -1,0 +1,23 @@
+{
+  "name": "stellar-space",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node auth-cli.js",
+    "report": "node show-report.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@microsoft/microsoft-graph-client": "^3.0.7",
+    "axios": "^1.13.2",
+    "dotenv": "^17.2.3",
+    "fs-extra": "^11.3.3",
+    "googleapis": "^169.0.0",
+    "isomorphic-fetch": "^3.0.0",
+    "mime-types": "^3.0.2"
+  }
+}
