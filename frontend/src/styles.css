@@ -1,0 +1,154 @@
+@import "tailwindcss";
+
+:root {
+  --hud-bg-dark: #030508;
+  --hud-panel-bg: rgba(15, 23, 42, 0.6);
+  --hud-border: rgba(6, 182, 212, 0.2);
+  --hud-accent-cyan: #06b6d4;
+  --hud-accent-magenta: #d946ef;
+  --hud-success: #10b981;
+  --hud-warning: #f59e0b;
+  --hud-danger: #ef4444;
+}
+
+body {
+  margin: 0;
+  background-color: var(--hud-bg-dark);
+  color: #f8fafc;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(217, 70, 239, 0.05) 0%, transparent 40%);
+}
+
+.mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.glass-card {
+  background: var(--hud-panel-bg);
+  border: 1px solid var(--hud-border);
+  border-radius: 16px;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(6, 182, 212, 0.4);
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.1);
+}
+
+.neon-border-cyan {
+  border: 1px solid var(--hud-accent-cyan);
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.3);
+}
+
+.neon-border-magenta {
+  border: 1px solid var(--hud-accent-magenta);
+  box-shadow: 0 0 10px rgba(217, 70, 239, 0.3);
+}
+
+.neon-text-cyan {
+  color: var(--hud-accent-cyan);
+  text-shadow: 0 0 8px rgba(6, 182, 212, 0.5);
+}
+
+.neon-text-magenta {
+  color: var(--hud-accent-magenta);
+  text-shadow: 0 0 8px rgba(217, 70, 239, 0.5);
+}
+
+.glass-card::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid var(--hud-accent-cyan);
+  border-right: 2px solid var(--hud-accent-cyan);
+  opacity: 0.5;
+}
+
+.stellar-btn {
+  background: rgba(6, 182, 212, 0.1);
+  color: var(--hud-accent-cyan);
+  border: 1px solid var(--hud-accent-cyan);
+  border-radius: 8px;
+  padding: 1rem 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.stellar-btn:hover:not(:disabled) {
+  background: var(--hud-accent-cyan);
+  color: #000;
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
+}
+
+.stellar-btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.stellar-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: #475569;
+  color: #64748b;
+}
+
+/* Scanline animation */
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+.scanline::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: linear-gradient(to bottom, transparent, rgba(34, 211, 238, 0.1), transparent);
+  animation: scanline 4s linear infinite;
+  pointer-events: none;
+  z-index: 50;
+}
+
+.glow-border-cyan {
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.2);
+  border-color: var(--hud-accent-cyan);
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(6, 182, 212, 0.2);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(6, 182, 212, 0.4);
+}
